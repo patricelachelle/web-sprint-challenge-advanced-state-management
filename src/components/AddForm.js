@@ -28,22 +28,22 @@ const AddForm = (props) => {
     } 
     return(<section>
         <h2>Add Smurf</h2>
-        <form onSubmit={handleSubmit}>
+        <form>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="name">Name:</label><br/>
-                <input onChange={handleChange} value={props.name} name="name" id="name" />
+                <input onChange={handleChange} value={state.name} name="name" id="name" />
             </div>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="position">Position:</label><br/>
-                <input onChange={handleChange} value={props.position} name="position" id="position" />
+                <input onChange={handleChange} value={state.position} name="position" id="position" />
             </div>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="nickname">Nickname:</label><br/>
-                <input onChange={handleChange} value={props.nickname} name="nickname" id="nickname" />
+                <input onChange={handleChange} value={state.nickname} name="name" id="nickname" />
             </div>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="description">Description:</label><br/>
-                <textarea onChange={handleChange} value={props.description} name="description" id="description" />
+                <textarea onChange={handleChange} value={state.description} name="description" id="description" />
             </div>
             {
                 error && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {error}</div>
@@ -60,7 +60,7 @@ const AddForm = (props) => {
         };
     };
 
-export default connect(mapStateToProps, { addSmurf, errorMessage })(AddForm);
+export default connect(mapStateToProps, { addSmurf, errorMessage, })(AddForm);
 
 //Task List:
 //1. Connect the errorMessage, setError and addSmurf actions to the AddForm component.
