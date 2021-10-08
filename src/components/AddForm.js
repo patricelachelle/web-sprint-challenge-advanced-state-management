@@ -39,7 +39,7 @@ const AddForm = (props) => {
             </div>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="nickname">Nickname:</label><br/>
-                <input onChange={handleChange} value={state.nickname} name="name" id="nickname" />
+                <input onChange={handleChange} value={state.nickname} name="nickname" id="nickname" />
             </div>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="description">Description:</label><br/>

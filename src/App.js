@@ -36,7 +36,7 @@ const mapStateToProps = state => {
     error: state.error
   };
 };
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps)(App);
 
 //Task List:
 //1. Connect the fetchSmurfs actions to the App component.
