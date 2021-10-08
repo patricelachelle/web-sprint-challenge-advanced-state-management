@@ -23,7 +23,7 @@ const AddForm = (props) => {
         if (state.name === '' || state.position === '' || state.nickname === '') {
             setErrorMessage(error)
         } else {
-            setState(state)
+            setState(props)
         }
     } 
     return(<section>
@@ -31,24 +31,24 @@ const AddForm = (props) => {
         <form onSubmit={handleSubmit}>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="name">Name:</label><br/>
-                <input onChange={handleChange} value={state.name} name="name" id="name" />
+                <input onChange={handleChange} value={props.name} name="name" id="name" />
             </div>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="position">Position:</label><br/>
-                <input onChange={handleChange} value={state.position} name="position" id="position" />
+                <input onChange={handleChange} value={props.position} name="position" id="position" />
             </div>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="nickname">Nickname:</label><br/>
-                <input onChange={handleChange} value={state.nickname} name="nickname" id="nickname" />
+                <input onChange={handleChange} value={props.nickname} name="nickname" id="nickname" />
             </div>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="description">Description:</label><br/>
-                <textarea onChange={handleChange} value={state.description} name="description" id="description" />
+                <textarea onChange={handleChange} value={props.description} name="description" id="description" />
             </div>
             {
                 error && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {error}</div>
             }
-            <button>Submit Smurf</button>
+            <button onClick={handleSubmit}>Submit Smurf</button>
         </form>
     </section>);
     }

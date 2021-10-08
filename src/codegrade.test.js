@@ -8,7 +8,6 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-
 import reducer from './reducers';
 import { initialState } from './reducers';
 
@@ -55,10 +54,10 @@ describe("Basic Application Functioning:", ()=>{
 describe("Validation Testing:", ()=>{
     test('App returns a validation error when name not included', async ()=> { 
         await runForm('', 'worker', 's3', 'description');
-        const error = await screen.findAllByTestId("errorAlert");
+        const error = await screen.findByTestId('errorAlert');
         
-        const nicknameTest = within(error).findByText(/name/i);
-        const errorTest = within(error).findAllByText(/error/i);
+        const nicknameTest = within(error).queryByText(/nickname/i);
+        const errorTest = within(error).queryByText(/error/i);
     
         expect(nicknameTest).not.toBeNull();
         expect(errorTest).not.toBeNull();
