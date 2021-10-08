@@ -25,6 +25,14 @@ const AddForm = (props) => {
         } else {
             setState(state)
         }
+    }
+    const handleClick = e => {
+        e.preventDefault();
+        if (state.name === '' || state.position === '' || state.nickname === '') {
+            setErrorMessage(error)
+        } else {
+            addSmurf(state)
+        }
     } 
     return(<section>
         <h2>Add Smurf</h2>
@@ -48,7 +56,7 @@ const AddForm = (props) => {
             {
                 error && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {error}</div>
             }
-            <button onClick={handleSubmit}>Submit Smurf</button>
+            <button onClick={handleClick}>Submit Smurf</button>
         </form>
     </section>);
     }

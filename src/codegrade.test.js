@@ -54,10 +54,10 @@ describe("Basic Application Functioning:", ()=>{
 describe("Validation Testing:", ()=>{
     test('App returns a validation error when name not included', async ()=> { 
         await runForm('', 'worker', 's3', 'description');
-        const error = await screen.findByTestId('errorAlert');
+        const error = await screen.findAllByTestId('errorAlert');
         
-        const nicknameTest = within(error).queryByText(/name/i);
-        const errorTest = within(error).queryByText(/error/i);
+        const nicknameTest = within(error).findByText(/name/i);
+        const errorTest = within(error).findAllByText(/error/i);
     
         expect(nicknameTest).not.toBeNull();
         expect(errorTest).not.toBeNull();
