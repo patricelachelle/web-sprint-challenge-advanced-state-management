@@ -23,12 +23,12 @@ const AddForm = (props) => {
         if (state.name === '' || state.position === '' || state.nickname === '') {
             setErrorMessage(error)
         } else {
-            setState(props)
+            setState(state)
         }
     } 
     return(<section>
         <h2>Add Smurf</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="name">Name:</label><br/>
                 <input onChange={handleChange} value={state.name} name="name" id="name" />
@@ -39,7 +39,7 @@ const AddForm = (props) => {
             </div>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="nickname">Nickname:</label><br/>
-                <input onChange={handleChange} value={state.nickname} name="name" id="nickname" />
+                <input onChange={handleChange} value={state.nickname} name="nickname" id="nickname" />
             </div>
             <div className="form-group">
                 <label data-testid="errorAlert" htmlFor="description">Description:</label><br/>
